@@ -1,5 +1,4 @@
 import intellimate.izou.addon.AddOn;
-import intellimate.izou.exampleaddon.ExampleAddOn;
 import intellimate.izou.main.Main;
 
 import java.util.LinkedList;
