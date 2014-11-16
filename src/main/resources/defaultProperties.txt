@@ -1,0 +1,14 @@
+de_p_greetingMorning = Guten Morgen
+en_p_greetingMorning = Good morning
+
+de_p_greetingEvening = Guten Abend
+en_p_greetingEvening = Good evening
+
+de_p_greeting = Guten Tag
+de_p_greeting_1 = Hallo
+de_p_greeting_2 = Servus
+en_p_greeting = Hello
+en_p_greeting_1 = Hi
+
+de_p_salutation = $firstname
+en_p_salutation = $firstname
