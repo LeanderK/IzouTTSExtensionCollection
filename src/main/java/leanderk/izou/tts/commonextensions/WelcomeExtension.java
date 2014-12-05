@@ -17,7 +17,7 @@ import java.util.Locale;
  */
 public class WelcomeExtension extends TTSOutputExtension{
     public static final String ID = WelcomeExtension.class.getCanonicalName();
-    private static final String PERSONAL_INFORMATION_ID = "leanderk.izou.personalinformation.InformationAddOn";
+    private static final String PERSONAL_INFORMATION_ID = "leanderk.izou.personalinformation.InformationAddOn.ResourceInfo";
     public static final String TTS_Greeting_MORNING = "greetingMorning";
     public static final String TTS_Greeting_MIDDAY = "greetingMidday";
     public static final String TTS_Greeting_Evening = "greetingEvening";

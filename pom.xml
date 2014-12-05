@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>leanderk.izou.tts.commonextensions</groupId>
-    <artifactId>commonextensions</artifactId>
+    <artifactId>ttscommonextensions</artifactId>
     <packaging>jar</packaging>
     <version>0.8.5-SNAPSHOT</version>
     <name>Leander Kurscheidt</name>

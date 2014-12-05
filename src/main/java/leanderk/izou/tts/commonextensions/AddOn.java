@@ -76,7 +76,7 @@ public class AddOn extends intellimate.izou.addon.AddOn{
     @Override
     public OutputExtension[] registerOutputExtension() {
         OutputExtension[] outputExtensions = new OutputExtension[1];
-        outputExtensions[0] = new WelcomeExtension(getPropertiesContainer());
+        outputExtensions[0] = new WelcomeExtension(getPropertiesContainer(), getContext());
         return outputExtensions;
     }
 
