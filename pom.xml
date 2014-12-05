@@ -7,13 +7,13 @@
     <groupId>leanderk.izou.tts.commonextensions</groupId>
     <artifactId>commonextensions</artifactId>
     <packaging>jar</packaging>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8.5-SNAPSHOT</version>
     <name>Leander Kurscheidt</name>
 
     <properties>
         <plugin.id>leanderk.izou.tts.commonextensions</plugin.id>
         <plugin.class>leanderk.izou.tts.commonextensions.ZipFileManager</plugin.class>
-        <plugin.version>0.5</plugin.version>
+        <plugin.version>0.8.5</plugin.version>
         <plugin.provider>Leander Kurscheidt</plugin.provider>
         <plugin.dependencies>leanderk.izou.tts</plugin.dependencies>
     </properties>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>leanderk.izou.tts</groupId>
             <artifactId>tts</artifactId>
-            <version>0.8.5-SNAPSHOT</version>
+            <version>0.9-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>

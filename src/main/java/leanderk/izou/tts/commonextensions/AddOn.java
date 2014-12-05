@@ -2,7 +2,7 @@ package leanderk.izou.tts.commonextensions;
 
 import intellimate.izou.activator.Activator;
 import intellimate.izou.contentgenerator.ContentGenerator;
-import intellimate.izou.events.EventController;
+import intellimate.izou.events.EventsController;
 import intellimate.izou.output.OutputExtension;
 import intellimate.izou.output.OutputPlugin;
 import ro.fortsoft.pf4j.Extension;
@@ -54,8 +54,8 @@ public class AddOn extends intellimate.izou.addon.AddOn{
      * @return Array containing Instances of EventControllers
      */
     @Override
-    public EventController[] registerEventController() {
-        return new EventController[0];
+    public EventsController[] registerEventController() {
+        return new EventsController[0];
     }
 
     /**
@@ -78,5 +78,10 @@ public class AddOn extends intellimate.izou.addon.AddOn{
         OutputExtension[] outputExtensions = new OutputExtension[1];
         outputExtensions[0] = new WelcomeExtension(getPropertiesContainer());
         return outputExtensions;
+    }
+
+    @Override
+    public String getID() {
+        return ID;
     }
 }

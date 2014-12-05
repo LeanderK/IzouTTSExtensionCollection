@@ -1,7 +1,9 @@
 package leanderk.izou.tts.commonextensions;
 
 import intellimate.izou.addon.PropertiesContainer;
-import intellimate.izou.contentgenerator.ContentData;
+import intellimate.izou.events.Event;
+import intellimate.izou.resource.Resource;
+import intellimate.izou.system.Context;
 import leanderk.izou.tts.outputextension.TTSData;
 import leanderk.izou.tts.outputextension.TTSOutputExtension;
 
@@ -15,23 +17,25 @@ import java.util.Locale;
  */
 public class WelcomeExtension extends TTSOutputExtension{
     public static final String ID = WelcomeExtension.class.getCanonicalName();
+    private static final String PERSONAL_INFORMATION_ID = "leanderk.izou.personalinformation.InformationAddOn";
     public static final String TTS_Greeting_MORNING = "greetingMorning";
     public static final String TTS_Greeting_MIDDAY = "greetingMidday";
     public static final String TTS_Greeting_Evening = "greetingEvening";
     public static final String TTS_Greeting = "greeting";
     public static final String TTS_Salutation = "salutation";
+
     /**
      * creates a new outputExtension with a new id
      */
-    public WelcomeExtension(PropertiesContainer propertiesContainer) {
-        super(ID, propertiesContainer);
-        addContentDataToWishList("leanderk.izou.personalinformation.InformationAddOn");
+    public WelcomeExtension(PropertiesContainer propertiesContainer, Context context) {
+        super(ID, propertiesContainer, context);
+        addResourceIdToWishList(PERSONAL_INFORMATION_ID);
         setPluginId("leanderk.izou.tts.outputplugin.TTSOutputPlugin");
     }
 
     @Override
-    public TTSData generateSentence() {
-        List<ContentData> contentData = getContentDataList();
+    public TTSData generateSentence(Event event) {
+        List<Resource> resources = event.getListResourceContainer().provideResource(PERSONAL_INFORMATION_ID);
         StringBuilder words = new StringBuilder();
         if(isMorning()) {
             words.append(getWords(TTS_Greeting_MORNING, null));
@@ -40,15 +44,16 @@ public class WelcomeExtension extends TTSOutputExtension{
         } else {
             words.append(getWords(TTS_Greeting, null));
         }
-        if(contentData.isEmpty()) {
+        if(resources.isEmpty()) {
             words.append(".");
         }
         else {
             try {
                 @SuppressWarnings("unchecked")
-                HashMap<String, String> information = (HashMap<String, String>) contentData.get(0).getData();
+                HashMap<String, String> information = (HashMap<String, String>) resources.get(0).getResource();
                 words.append(", ");
                 words.append(getWords(TTS_Salutation, information));
+                words.append("!");
             } catch (ClassCastException e) {
                 words.append(".");
             }
