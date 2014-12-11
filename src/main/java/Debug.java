@@ -11,6 +11,6 @@ public class Debug {
         LinkedList<AddOn> addOns = new LinkedList<>();
         addOns.add(new leanderk.izou.tts.TTS());
         addOns.add(new leanderk.izou.tts.commonextensions.AddOn());
-        Main main = new Main(addOns, true);
+        Main main = new Main(addOns);
     }
 }

@@ -5,7 +5,7 @@ de_p_greetingEvening = Guten Abend
 en_p_greetingEvening = Good evening
 
 de_p_greeting = Guten Tag
-de_p_greeting_1 = Hallo
+de_p_greeting_1 = Hallo 
 de_p_greeting_2 = Servus
 en_p_greeting = Hello
 en_p_greeting_1 = Hi
