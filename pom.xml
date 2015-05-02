@@ -7,13 +7,13 @@
     <groupId>leanderk.izou.tts.commonextensions</groupId>
     <artifactId>ttscommonextensions</artifactId>
     <packaging>jar</packaging>
-    <version>0.8.5-SNAPSHOT</version>
+    <version>1.5</version>
     <name>Leander Kurscheidt</name>
 
     <properties>
         <plugin.id>leanderk.izou.tts.commonextensions</plugin.id>
         <plugin.class>leanderk.izou.tts.commonextensions.ZipFileManager</plugin.class>
-        <plugin.version>0.8.5</plugin.version>
+        <plugin.version>1.5</plugin.version>
         <plugin.provider>Leander Kurscheidt</plugin.provider>
         <plugin.dependencies>leanderk.izou.tts</plugin.dependencies>
         <repo.name>IzouTTSExtensionCollection</repo.name>
@@ -24,26 +24,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>intellimate.izou</groupId>
-            <artifactId>Izou</artifactId>
-            <version>0.9.9.9-SNAPSHOT</version>
+            <groupId>org.intellimate.izou</groupId>
+            <artifactId>sdk</artifactId>
+            <version>[0.5.0, 1.0.0)</version>
         </dependency>
         <dependency>
             <groupId>leanderk.izou.tts</groupId>
             <artifactId>tts</artifactId>
-            <version>0.9-SNAPSHOT</version>
+            <version>[2.0, 3.0)</version>
         </dependency>
     </dependencies>
 
     <repositories>
-        <repository>
-            <id>Izou</id>
-            <url>https://raw.github.com/intellimate/Izou/mvn-repo/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
         <repository>
             <id>IzouTTS</id>
             <url>https://raw.github.com/LeanderK/IzouTTS/mvn-repo/</url>

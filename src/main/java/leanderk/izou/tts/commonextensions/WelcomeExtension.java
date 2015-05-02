@@ -1,11 +1,10 @@
 package leanderk.izou.tts.commonextensions;
 
-import intellimate.izou.addon.PropertiesContainer;
-import intellimate.izou.events.Event;
-import intellimate.izou.resource.Resource;
-import intellimate.izou.system.Context;
 import leanderk.izou.tts.outputextension.TTSData;
 import leanderk.izou.tts.outputextension.TTSOutputExtension;
+import org.intellimate.izou.events.EventModel;
+import org.intellimate.izou.resource.ResourceModel;
+import org.intellimate.izou.sdk.Context;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import java.util.Locale;
 /**
  * Created by LeanderK on 14/11/14.
  */
-public class WelcomeExtension extends TTSOutputExtension{
+public class WelcomeExtension extends TTSOutputExtension {
     public static final String ID = WelcomeExtension.class.getCanonicalName();
     private static final String PERSONAL_INFORMATION_ID = "leanderk.izou.personalinformation.InformationCG.ResourceInfo";
     public static final String TTS_Greeting_MORNING = "greetingMorning";
@@ -27,15 +26,15 @@ public class WelcomeExtension extends TTSOutputExtension{
     /**
      * creates a new outputExtension with a new id
      */
-    public WelcomeExtension(PropertiesContainer propertiesContainer, Context context) {
-        super(ID, propertiesContainer, context);
+    public WelcomeExtension(Context context) {
+        super(ID, context);
         addResourceIdToWishList(PERSONAL_INFORMATION_ID);
         setPluginId("leanderk.izou.tts.outputplugin.TTSOutputPlugin");
     }
 
     @Override
-    public TTSData generateSentence(Event event) {
-        List<Resource> resources = event.getListResourceContainer().provideResource(PERSONAL_INFORMATION_ID);
+    public TTSData generateSentence(EventModel event) {
+        List<ResourceModel> resources = event.getListResourceContainer().provideResource(PERSONAL_INFORMATION_ID);
         StringBuilder words = new StringBuilder();
         if(isMorning()) {
             words.append(getWords(TTS_Greeting_MORNING, null));

@@ -1,17 +1,17 @@
 package leanderk.izou.tts.commonextensions;
 
-import intellimate.izou.activator.Activator;
-import intellimate.izou.contentgenerator.ContentGenerator;
-import intellimate.izou.events.EventsController;
-import intellimate.izou.output.OutputExtension;
-import intellimate.izou.output.OutputPlugin;
+import org.intellimate.izou.sdk.activator.Activator;
+import org.intellimate.izou.sdk.contentgenerator.ContentGenerator;
+import org.intellimate.izou.sdk.events.EventsController;
+import org.intellimate.izou.sdk.output.OutputExtensionArgument;
+import org.intellimate.izou.sdk.output.OutputPlugin;
 import ro.fortsoft.pf4j.Extension;
 
 /**
  * Created by LeanderK on 14/11/14.
  */
 @Extension
-public class AddOn extends intellimate.izou.addon.AddOn{
+public class AddOn extends org.intellimate.izou.sdk.addon.AddOn{
     public static final String ID = AddOn.class.getCanonicalName();
     /**
      * the default constructor for AddOns
@@ -74,9 +74,9 @@ public class AddOn extends intellimate.izou.addon.AddOn{
      * @return Array containing Instances of OutputExtensions
      */
     @Override
-    public OutputExtension[] registerOutputExtension() {
-        OutputExtension[] outputExtensions = new OutputExtension[1];
-        outputExtensions[0] = new WelcomeExtension(getPropertiesContainer(), getContext());
+    public OutputExtensionArgument[] registerOutputExtension() {
+        OutputExtensionArgument[] outputExtensions = new OutputExtensionArgument[1];
+        outputExtensions[0] = new WelcomeExtension(getContext());
         return outputExtensions;
     }
 
