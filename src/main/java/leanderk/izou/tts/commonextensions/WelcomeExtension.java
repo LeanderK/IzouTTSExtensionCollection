@@ -5,6 +5,8 @@ import leanderk.izou.tts.outputextension.TTSOutputExtension;
 import org.intellimate.izou.events.EventModel;
 import org.intellimate.izou.resource.ResourceModel;
 import org.intellimate.izou.sdk.Context;
+import org.intellimate.izou.sdk.events.CommonEvents;
+import org.intellimate.izou.sdk.frameworks.presence.events.PresenceEvent;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -34,6 +36,12 @@ public class WelcomeExtension extends TTSOutputExtension {
 
     @Override
     public TTSData generateSentence(EventModel event) {
+        if ((!event.containsDescriptor(PresenceEvent.FIRST_ENCOUNTER_DESCRIPTOR) &&
+                !event.containsDescriptor(PresenceEvent.STRICT_DESCRIPTOR)) ||
+                !event.containsDescriptor(CommonEvents.Response.FULL_RESPONSE_DESCRIPTOR) ||
+                !event.containsDescriptor(CommonEvents.Response.MAJOR_RESPONSE_DESCRIPTOR) ||
+                !event.containsDescriptor(CommonEvents.Response.MINOR_RESPONSE_DESCRIPTOR))
+            return null;
         List<ResourceModel> resources = event.getListResourceContainer().provideResource(PERSONAL_INFORMATION_ID);
         StringBuilder words = new StringBuilder();
         if(isMorning()) {
@@ -78,17 +86,6 @@ public class WelcomeExtension extends TTSOutputExtension {
         upperLimit.set(Calendar.MINUTE, 00);
         Calendar lowerLimit = Calendar.getInstance();
         lowerLimit.set(Calendar.HOUR_OF_DAY, 04);
-        lowerLimit.set(Calendar.MINUTE,00);
-        Calendar now = Calendar.getInstance();
-        return now.before(upperLimit) && now.after(lowerLimit);
-    }
-
-    public boolean isMidday() {
-        Calendar upperLimit = Calendar.getInstance();
-        upperLimit.set(Calendar.HOUR_OF_DAY, 14);
-        upperLimit.set(Calendar.MINUTE, 00);
-        Calendar lowerLimit = Calendar.getInstance();
-        lowerLimit.set(Calendar.HOUR_OF_DAY, 12);
         lowerLimit.set(Calendar.MINUTE,00);
         Calendar now = Calendar.getInstance();
         return now.before(upperLimit) && now.after(lowerLimit);
