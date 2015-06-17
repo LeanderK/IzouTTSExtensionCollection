@@ -5,7 +5,7 @@ import leanderk.izou.tts.outputextension.TTSOutputExtension;
 import org.intellimate.izou.events.EventModel;
 import org.intellimate.izou.resource.ResourceModel;
 import org.intellimate.izou.sdk.Context;
-import org.intellimate.izou.sdk.frameworks.presence.events.PresenceEvent;
+import org.intellimate.izou.sdk.events.CommonEvents;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -35,8 +35,9 @@ public class WelcomeExtension extends TTSOutputExtension {
 
     @Override
     public TTSData generateSentence(EventModel event) {
-        if (!event.containsDescriptor(PresenceEvent.FIRST_ENCOUNTER_DESCRIPTOR) &&
-                !event.containsDescriptor(PresenceEvent.STRICT_DESCRIPTOR))
+        if (!event.containsDescriptor(CommonEvents.Response.FULL_RESPONSE_DESCRIPTOR) &&
+                !event.containsDescriptor(CommonEvents.Response.MAJOR_RESPONSE_DESCRIPTOR) &&
+                !event.containsDescriptor(CommonEvents.Response.MINOR_RESPONSE_DESCRIPTOR))
             return null;
         List<ResourceModel> resources = event.getListResourceContainer().provideResource(PERSONAL_INFORMATION_ID);
         StringBuilder words = new StringBuilder();
