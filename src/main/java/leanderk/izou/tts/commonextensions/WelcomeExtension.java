@@ -90,8 +90,8 @@ public class WelcomeExtension extends TTSOutputExtension {
 
     public boolean isEvening() {
         Calendar upperLimit = Calendar.getInstance();
-        upperLimit.set(Calendar.HOUR_OF_DAY, 20);
-        upperLimit.set(Calendar.MINUTE, 00);
+        upperLimit.set(Calendar.HOUR_OF_DAY, 23);
+        upperLimit.set(Calendar.MINUTE, 55);
         Calendar lowerLimit = Calendar.getInstance();
         lowerLimit.set(Calendar.HOUR_OF_DAY, 18);
         lowerLimit.set(Calendar.MINUTE,00);
